@@ -1,0 +1,35 @@
+baseURL = 'https://food.skisocks.dev/'
+languageCode = 'en-GB'
+title = "Skisock's Recipe Database"
+
+[params]
+  description = 'A personal collection of favorite recipes'
+  featured_image = ''
+  site_logo = ''
+  text_color = ''
+  author = 'Skisocks'
+  favicon = ''
+  show_reading_time = true
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Recipes'
+    url = '/recipes/'
+    weight = 2
+  [[menu.main]]
+    name = 'Categories'
+    url = '/categories/'
+    weight = 3
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  cuisine = 'cuisines'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

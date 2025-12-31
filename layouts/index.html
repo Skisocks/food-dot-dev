@@ -1,0 +1,79 @@
+{{ define "main" }}
+<div class="home-page">
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ .Site.Title }}</h1>
+      <p class="hero-description">{{ .Site.Params.description }}</p>
+      <a href="/recipes/" class="hero-button">Browse Recipes</a>
+    </div>
+  </section>
+
+  <section class="recent-recipes">
+    <h2 class="section-title">Recent Recipes</h2>
+    <div class="recipes-grid">
+      {{ range first 6 (where .Site.RegularPages "Section" "recipes") }}
+      <article class="recipe-card">
+        {{ if .Params.featured_image }}
+        <div class="recipe-card-image">
+          <a href="{{ .Permalink }}">
+            <img src="{{ .Params.featured_image }}" alt="{{ .Title }}">
+          </a>
+        </div>
+        {{ else }}
+        <div class="recipe-card-image recipe-card-placeholder">
+          <a href="{{ .Permalink }}">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </a>
+        </div>
+        {{ end }}
+
+        <div class="recipe-card-content">
+          <h3 class="recipe-card-title">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h3>
+
+          <div class="recipe-card-meta">
+            {{ with .Params.prepTime }}
+            <span class="meta-badge">⏱️ {{ . }}</span>
+            {{ end }}
+            {{ with .Params.difficulty }}
+            <span class="meta-badge difficulty-{{ lower . }}">{{ . }}</span>
+            {{ end }}
+          </div>
+
+          {{ with .Params.categories }}
+          <div class="recipe-card-categories">
+            {{ range first 2 . }}
+            <span class="category-badge">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    {{ if ge (len (where .Site.RegularPages "Section" "recipes")) 6 }}
+    <div class="view-all">
+      <a href="/recipes/" class="view-all-button">View All Recipes →</a>
+    </div>
+    {{ end }}
+  </section>
+
+  <section class="categories-section">
+    <h2 class="section-title">Browse by Category</h2>
+    <div class="categories-grid">
+      {{ range .Site.Taxonomies.categories }}
+      <a href="{{ .Page.Permalink }}" class="category-card">
+        <h3>{{ .Page.Title }}</h3>
+        <span class="count">{{ .Count }} {{ if eq .Count 1 }}recipe{{ else }}recipes{{ end }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="recipes-list-page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    <p class="page-description">Browse all {{ lower .Title }}</p>
+  </header>
+
+  <div class="categories-grid">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="category-card">
+      <h3>{{ .Title }}</h3>
+      <span class="count">{{ .Pages | len }} {{ if eq (.Pages | len) 1 }}recipe{{ else }}recipes{{ end }}</span>
+    </a>
+    {{ end }}
+  </div>
+
+  {{ if eq (len .Pages) 0 }}
+  <div class="no-recipes">
+    <p>No {{ lower .Title }} yet.</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

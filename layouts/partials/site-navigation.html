@@ -1,0 +1,24 @@
+<nav class="custom-nav" role="navigation">
+  <div class="nav-container">
+    <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">
+      {{ with .Site.Params.site_logo }}
+        <img src="{{ urls.RelURL . }}" alt="{{ $.Site.Title }}" />
+      {{ else }}
+        {{ .Site.Title }}
+      {{ end }}
+    </a>
+    <div class="nav-menu">
+      {{ if .Site.Menus.main }}
+        <ul class="nav-links">
+          {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}" title="{{ .Name }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+  </div>
+</nav>

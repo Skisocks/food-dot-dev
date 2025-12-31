@@ -1,0 +1,93 @@
+{{ define "main" }}
+<article class="recipe-single">
+  <header class="recipe-header">
+    <h1 class="recipe-title">{{ .Title }}</h1>
+
+    <div class="recipe-meta">
+      {{ with .Params.prepTime }}
+      <div class="meta-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span><strong>Prep:</strong> {{ . }}</span>
+      </div>
+      {{ end }}
+
+      {{ with .Params.cookTime }}
+      <div class="meta-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6.13 1L6 16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V1"></path>
+          <path d="M3 6h18"></path>
+        </svg>
+        <span><strong>Cook:</strong> {{ . }}</span>
+      </div>
+      {{ end }}
+
+      {{ with .Params.servings }}
+      <div class="meta-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span><strong>Servings:</strong> {{ . }}</span>
+      </div>
+      {{ end }}
+
+      {{ with .Params.difficulty }}
+      <div class="meta-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span><strong>Difficulty:</strong> {{ . }}</span>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ with .Params.featured_image }}
+    <div class="recipe-image">
+      <img src="{{ . }}" alt="{{ $.Title }}">
+    </div>
+    {{ end }}
+
+    <div class="recipe-taxonomies">
+      {{ with .Params.categories }}
+      <div class="taxonomy-group">
+        <strong>Categories:</strong>
+        {{ range . }}
+        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="badge badge-category">{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ with .Params.cuisines }}
+      <div class="taxonomy-group">
+        <strong>Cuisine:</strong>
+        {{ range . }}
+        <a href="{{ "/cuisines/" | relLangURL }}{{ . | urlize }}" class="badge badge-cuisine">{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ with .Params.tags }}
+      <div class="taxonomy-group">
+        <strong>Tags:</strong>
+        {{ range . }}
+        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="badge badge-tag">{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <div class="recipe-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="recipe-footer">
+    <p><em>Published on {{ .Date.Format "January 2, 2006" }}</em></p>
+  </footer>
+</article>
+{{ end }}
