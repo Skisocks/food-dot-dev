@@ -1,6 +1,6 @@
 baseURL = 'https://food.skisocks.dev/'
 languageCode = 'en-GB'
-title = "Skisock's Recipe Database"
+title = "Skisocks Recipe Database"
 enableGitInfo = true
 
 [params]
