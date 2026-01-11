@@ -544,6 +544,11 @@ main {
   text-decoration: underline;
 }
 
+.source-favicon {
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
 .taxonomy-group {
   margin: 0.5rem 0;
 }
@@ -648,6 +653,7 @@ main {
 }
 
 .ingredient-name {
+  text-align: center;
   color: var(--color-text);
 }
 
