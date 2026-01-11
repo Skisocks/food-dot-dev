@@ -99,6 +99,44 @@
     {{ end }}
   </header>
 
+  {{ with .Params.ingredients }}
+  <section class="recipe-ingredients">
+    <div class="ingredients-header">
+      <h2>Ingredients</h2>
+      <button class="copy-ingredients-btn" onclick="copyIngredientNames()" title="Copy ingredient names">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span class="btn-text">Copy list</span>
+      </button>
+    </div>
+    <table class="ingredients-table">
+      <tbody>
+        {{ range . }}
+        <tr>
+          <td class="ingredient-qty">{{ .qty }}</td>
+          <td class="ingredient-name">{{ .name }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </section>
+  <script>
+    function copyIngredientNames() {
+      const names = Array.from(document.querySelectorAll('.ingredient-name'))
+        .map(el => el.textContent.trim())
+        .join('\n');
+      navigator.clipboard.writeText(names).then(() => {
+        const btn = document.querySelector('.copy-ingredients-btn .btn-text');
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = originalText, 2000);
+      });
+    }
+  </script>
+  {{ end }}
+
   <div class="recipe-content">
     {{ .Content }}
   </div>

@@ -12,11 +12,10 @@ difficulty: "Medium"
 featured_image: ""
 source: ""
 source_url: ""
+ingredients:
+  - qty: ""
+    name: ""
 ---
-
-## Ingredients
-
--
 
 ## Instructions
 
