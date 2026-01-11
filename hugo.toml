@@ -1,6 +1,7 @@
 baseURL = 'https://food.skisocks.dev/'
 languageCode = 'en-GB'
 title = "Skisock's Recipe Database"
+enableGitInfo = true
 
 [params]
   description = 'A personal collection of favorite recipes'
@@ -10,6 +11,7 @@ title = "Skisock's Recipe Database"
   author = 'Skisocks'
   favicon = ''
   show_reading_time = true
+  github_repo = 'https://github.com/Skisocks/food-dot-dev'
 
 [menu]
   [[menu.main]]

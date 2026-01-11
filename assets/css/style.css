@@ -587,6 +587,29 @@ main {
   color: var(--color-text-muted);
 }
 
+.recipe-version-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.recipe-version-info p {
+  margin: 0.5rem 0;
+}
+
+.recipe-version-info a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.recipe-version-info a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
 /* Categories Grid */
 .categories-grid {
   display: grid;
