@@ -665,7 +665,7 @@ main {
 }
 
 .ingredient-qty {
-  text-align: right;
+  text-align: left;
   white-space: nowrap;
   font-weight: 600;
   color: var(--color-primary);
