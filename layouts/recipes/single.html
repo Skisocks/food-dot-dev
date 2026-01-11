@@ -117,11 +117,13 @@
       </button>
     </div>
     <table class="ingredients-table">
-      <tbody>
+      <thead>
         <tr>
           <th scope="col">Quantity</th>
-          <th scope="col">Name</th>
+          <th scope="col">Ingredient</th>
         </tr>
+      </thead>
+      <tbody>
         {{ range . }}
         <tr>
           <td class="ingredient-qty">{{ .qty }}</td>
