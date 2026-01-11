@@ -3,7 +3,7 @@ title: "Chilli Con Carne"
 date: 2026-01-11T12:48:00Z
 draft: false
 categories: ["Dinner"]
-cuisines: ["Mexican"]
+cuisines: ["Tex-Mex"]
 tags: []
 prepTime: "15 min"
 cookTime: "30 min"
