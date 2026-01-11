@@ -516,6 +516,34 @@ main {
   border-left: 4px solid var(--color-primary);
 }
 
+.recipe-source {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.recipe-source svg {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.recipe-source a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.recipe-source a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
 .taxonomy-group {
   margin: 0.5rem 0;
 }
