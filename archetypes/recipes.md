@@ -10,6 +10,8 @@ cookTime: "30 min"
 servings: 4
 difficulty: "Medium"
 featured_image: ""
+source: ""
+source_url: ""
 ---
 
 ## Ingredients
