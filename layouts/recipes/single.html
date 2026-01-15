@@ -104,6 +104,14 @@
     {{ end }}
   </header>
 
+  <div class="screen-wake-lock">
+    <label class="wake-lock-toggle">
+      <input type="checkbox" id="wakeLockToggle">
+      <span class="toggle-slider"></span>
+      <span class="toggle-label">Keep screen on</span>
+    </label>
+  </div>
+
   {{ with .Params.ingredients }}
   <section class="recipe-ingredients">
     <div class="ingredients-header">
@@ -175,4 +183,7 @@
     {{ end }}
   </footer>
 </article>
+
+{{ $wakeLock := resources.Get "js/wake-lock.js" }}
+<script src="{{ $wakeLock.RelPermalink }}"></script>
 {{ end }}
